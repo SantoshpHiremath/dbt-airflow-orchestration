@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: Cleaned, deduplicated order data — one row per order_id.
+    columns:
+      - name: order_id
+        description: Unique order identifier (deduplicated from the raw source)
+        tests:
+          - unique
+          - not_null
+      - name: order_date
+        tests:
+          - not_null
+      - name: region
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Bavaria', 'Baden-Württemberg', 'North Rhine-Westphalia', 'Saxony', 'Lower Saxony']
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Received', 'In Progress', 'Shipped', 'Delivered', 'Cancelled']
+      - name: processing_days
+        description: Days to process; negative raw values are nulled out during staging.

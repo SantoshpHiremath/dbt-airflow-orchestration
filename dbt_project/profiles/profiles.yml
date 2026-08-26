@@ -1,0 +1,7 @@
+order_management_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('DBT_DUCKDB_PATH', '/home/claude/dbt-airflow-orchestration/dbt_project/order_management.duckdb') }}"
+      threads: 4

@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: mart_order_summary
+    description: Order summary by region and product line, for dashboard reporting.
+    columns:
+      - name: region
+        tests:
+          - not_null
+      - name: product_line
+        tests:
+          - not_null
+      - name: order_count
+        tests:
+          - not_null
+
+  - name: mart_status_funnel
+    description: Order counts and percentage share by status.
+    columns:
+      - name: status
+        tests:
+          - unique
+          - not_null
+      - name: order_count
+        tests:
+          - not_null

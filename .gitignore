@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+dbt_project/target/
+dbt_project/logs/
+dbt_project/order_management.duckdb

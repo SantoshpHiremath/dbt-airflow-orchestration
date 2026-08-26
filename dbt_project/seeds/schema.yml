@@ -1,0 +1,27 @@
+version: 2
+
+seeds:
+  - name: raw_orders
+    description: >
+      Synthetic order-management data modeled on a Factory Service Center
+      order intake -> processing -> fulfillment workflow. NOT real Siemens
+      data — generated to practice building a real, tested dbt pipeline
+      against realistic order-management data, since no real order data
+      was available. Intentionally includes duplicate order_ids, null
+      order values, and negative processing_days to give the staging
+      models real data-quality problems to actually clean.
+    columns:
+      - name: order_id
+        description: Order identifier (raw column contains duplicates by design)
+      - name: order_date
+        description: Date the order was placed
+      - name: region
+        description: German federal state associated with the order
+      - name: product_line
+        description: Siemens Mobility product line the order falls under
+      - name: status
+        description: Current order status (Received, In Progress, Shipped, Delivered, Cancelled)
+      - name: order_value_eur
+        description: Order value in EUR (raw column contains some nulls by design)
+      - name: processing_days
+        description: Days from order receipt to current status (raw column contains some negative values by design — data entry errors to clean)
