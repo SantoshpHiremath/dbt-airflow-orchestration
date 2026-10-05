@@ -13,12 +13,11 @@ create in this Airflow/provider version combination, but that a later
 code path `dag.test()` queries against). The CLI command
 `airflow dags test`, run against the same initialized metadata DB, does
 NOT hit that code path and succeeds reliably and repeatedly -- confirmed
-directly, multiple times, during development (see README's "How this was
-actually verified" section for the exact commands and output). Rather
-than paper over the discrepancy, this test uses the same CLI command
-that was actually, repeatedly verified to work, and the root-cause
-investigation into `dag.test()`'s environment-specific quirk is disclosed
-here rather than hidden.
+directly, multiple times, during development (see README's "Notes"
+section for the exact commands and output). This
+test therefore uses the CLI command that was repeatedly verified to
+work; the `dag.test()` environment quirk is documented here for
+reference.
 
 This test needs an initialized Airflow metadata database (see README's
 setup commands: `airflow db init` against a scratch AIRFLOW_HOME). It is

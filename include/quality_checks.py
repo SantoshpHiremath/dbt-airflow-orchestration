@@ -11,9 +11,9 @@ different, complementary kind of check from dbt's own schema tests:
   a purely structural test wouldn't catch), and are the mart tables
   actually populated.
 
-This is the kind of "monitor pipeline performance, flag issues" work the
-job posting names directly, done as real, runnable Python against the
-actual DuckDB warehouse the dbt run just produced -- not a mocked check.
+This is pipeline-performance monitoring that flags issues, done as real,
+runnable Python against the actual DuckDB warehouse the dbt run just
+produced -- not a mocked check.
 """
 from __future__ import annotations
 
